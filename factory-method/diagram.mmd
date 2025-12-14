@@ -1,0 +1,39 @@
+classDiagram
+    class Document {
+        <<interface>>
+        +print() void
+    }
+
+    class PdfDocument {
+        +print() void
+    }
+
+    class WordDocument {
+        +print() void
+    }
+
+    class DocumentFactory {
+        <<abstract>>
+        +createDocument() Document
+        +printDocument() void
+    }
+
+    class PdfFactory {
+        +createDocument() Document
+    }
+
+    class WordFactory {
+        +createDocument() Document
+    }
+
+    class Main {
+        +main(args : String[]) void
+    }
+
+    PdfDocument ..|> Document : implements
+    WordDocument ..|> Document : implements
+    PdfFactory --|> DocumentFactory : extends
+    WordFactory --|> DocumentFactory : extends
+    PdfFactory ..> PdfDocument : creates
+    WordFactory ..> WordDocument : creates
+    Main ..> DocumentFactory : uses

@@ -1,0 +1,3 @@
+class SimpleDoc {
+    String title;
+}

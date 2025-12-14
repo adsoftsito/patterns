@@ -1,0 +1,63 @@
+classDiagram
+    class Button {
+        <<interface>>
+        +paint() void
+    }
+    class Window {
+        <<interface>>
+        +render() void
+    }
+    
+    class WindowsButton {
+        +paint() void
+    }
+    class MacButton {
+        +paint() void
+    }
+    
+    class WindowsWindow {
+        +render() void
+    }
+    class MacWindow {
+        +render() void
+    }
+
+    class GUIFactory {
+        <<interface>>
+        +createButton() Button
+        +createWindow() Window
+    }
+    
+    class WindowsFactory {
+        +createButton() Button
+        +createWindow() Window
+    }
+    class MacFactory {
+        +createButton() Button
+        +createWindow() Window
+    }
+    
+    class Application {
+        -Button button
+        -Window window
+        +Application(GUIFactory)
+        +run()
+        +main()
+    }
+
+    WindowsButton ..|> Button : implements
+    MacButton ..|> Button : implements
+    WindowsWindow ..|> Window : implements
+    MacWindow ..|> Window : implements
+    
+    WindowsFactory ..|> GUIFactory : implements
+    MacFactory ..|> GUIFactory : implements
+    
+    WindowsFactory ..> WindowsButton : creates
+    WindowsFactory ..> WindowsWindow : creates
+    MacFactory ..> MacButton : creates
+    MacFactory ..> MacWindow : creates
+    
+    Application ..> GUIFactory : uses
+    Application --> Button : uses
+    Application --> Window : uses

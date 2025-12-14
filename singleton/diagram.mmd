@@ -1,0 +1,17 @@
+classDiagram
+    class DatabaseConnection {
+        -DatabaseConnection instance
+        -Connection connection
+        -String URL
+        -String USER
+        -String PASSWORD
+        -DatabaseConnection()
+        +getInstance() DatabaseConnection
+        +getConnection() Connection
+    }
+    
+    class Main {
+        +main(args : String[]) void
+    }
+
+    Main --> DatabaseConnection : uses
