@@ -1,0 +1,39 @@
+classDiagram
+    class Graphic {
+        <<interface>>
+        +draw()
+    }
+
+    class Circle {
+        +draw()
+    }
+
+    class GraphicDecorator {
+        <<abstract>>
+        #Graphic graphic
+        +GraphicDecorator(Graphic graphic)
+        +draw()
+    }
+
+    class BorderDecorator {
+        +BorderDecorator(Graphic graphic)
+        +draw()
+    }
+
+    class ShadowDecorator {
+        +ShadowDecorator(Graphic graphic)
+        +draw()
+    }
+
+    class Main {
+        +main(String[] args)
+    }
+
+    Graphic <|.. Circle : implements
+    Graphic <|.. GraphicDecorator : implements
+    GraphicDecorator o-- Graphic : aggregates
+    GraphicDecorator <|-- BorderDecorator : extends
+    GraphicDecorator <|-- ShadowDecorator : extends
+    Main ..> Graphic : uses
+    Main ..> BorderDecorator : creates
+    Main ..> ShadowDecorator : creates

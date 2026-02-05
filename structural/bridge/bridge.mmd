@@ -1,0 +1,26 @@
+classDiagram
+    class Color {
+        <<interface>>
+        +aplicar() void
+    }
+    class Rojo {
+        +aplicar() void
+    }
+    class Azul {
+        +aplicar() void
+    }
+    class Forma {
+        <<abstract>>
+        #Color color
+        +Forma(Color color)
+        +dibujar() void*
+    }
+    class Circulo {
+        +Circulo(Color color)
+        +dibujar() void
+    }
+
+    Color <|.. Rojo : implements
+    Color <|.. Azul : implements
+    Forma o--> "1" Color : has
+    Forma <|-- Circulo : extends
