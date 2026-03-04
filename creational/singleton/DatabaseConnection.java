@@ -8,9 +8,9 @@ public class DatabaseConnection {
     // Objeto conexión
     private Connection connection;
     // Datos de conexión
-    private static final String URL = "jdbc:mysql://localhost:3306/mi_base";
-    private static final String USER = "root";
-    private static final String PASSWORD = "password";
+    private static final String URL = "jdbc:mysql://localhost:3306/user_api";
+    private static final String USER = "devuser";
+    private static final String PASSWORD = "adsoft";
 
     // Constructor privado
     private DatabaseConnection() {

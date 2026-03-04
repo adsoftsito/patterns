@@ -1,5 +1,8 @@
 import java.sql.Connection;
-
+//
+// Compile: javac -cp .:mysql-connector-java-9.6.0.jar *.java
+// Run: java -cp .:mysql-connector-java-9.6.0.jar Main
+//
 public class Main {
     public static void main(String[] args) {
 
